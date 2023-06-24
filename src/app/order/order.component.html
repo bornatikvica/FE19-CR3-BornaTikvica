@@ -1,0 +1,29 @@
+<div id="content">
+    <div class="card">
+        <h5 class="card-header">Cart- item(s)</h5>
+        <div *ngFor="let item of cart" class="card-body">
+          <img src="{{ item.image }}" width="100">  
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.info }}</p>
+          <p class="card-text">Price:${{ item.price }}</p>
+          <hr>
+        </div>
+    </div>
+    <div class="card">
+      <h5 class="card-header">Summary</h5>
+      <div class="card-body">
+        <p class="card-text">Order Price: ${{ total.toFixed(2) }} </p>
+        <br>
+        <p class="card-text">Service: ${{ fee.toFixed(2) }} </p>
+        <br>
+        <p class="card-text">Discount:${{ (total > 40 ? (total * 0.15) : 0).toFixed(2) }}</p>
+        <hr>
+        <h6 class="card-header">Total amount(including VAT):${{ ((total - (total > 40 ? (total * 0.15) : 0)) + fee).toFixed(2) }}</h6>
+        <hr>
+        <a (click)="emptyCart()" class=" btn btn-danger">Reset</a>
+      </div>
+     
+      
+    </div>
+
+</div>

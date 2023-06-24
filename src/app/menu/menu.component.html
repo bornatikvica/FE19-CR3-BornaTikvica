@@ -1,0 +1,30 @@
+<div class="text-center">
+  <p class="fonts">Our Specialties</p>
+  <hr>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 py-3 px-3 g-3" >
+    <div *ngFor="let product of products;index as x" class="cards1">
+        <div  class="card gap-3" style="width: 18rem;">
+            <img src="{{ product.image }}" class="card-img-top" width="250" height="200">
+            <div class="card-body" style="height: 250px;">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.info }}</p>
+              <hr>
+              <p>${{ product.price }}</p>
+              <hr>
+              <div *ngIf="product.availability" id="buttons">
+              <a routerLink="/details/{{ x }}"  class="btn btn-primary">Details</a>
+              <a (click)="selectProduct(product)" class="btn btn-success">Order</a>
+              </div>
+              <div *ngIf="!product.availability" >
+                <p class="text-danger">This dish is not availabile at this season.</p>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+

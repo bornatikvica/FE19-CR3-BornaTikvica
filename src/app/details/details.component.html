@@ -1,0 +1,22 @@
+<div class="text-center">
+    <p class="fonts">Product Details</p>
+    <hr>
+</div>
+<div *ngIf="product">
+    <div class="card text-center">
+        <div class="card-header">
+          <img src="{{ product.image }}">
+        </div>
+        <div class="card-footer text-body-secondary">
+          <p>{{ product.info2 }} </p>
+      </div>
+        <div class="card-body">
+          <h5 class="card-title"> {{ product.name }} </h5>
+          <p class="card-text"> {{ product.info }} </p>
+          <p class="card-text"> ${{ product.price }} </p>
+          <a (click)="addToCart()" class="btn btn-success">Order</a>
+        </div>
+       
+        
+      </div>
+</div>
